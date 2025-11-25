@@ -1,7 +1,7 @@
 # SIEM Log Analysis & Incident Detection
 
 ## Purpose
-Simulate and detect suspicious authentication events using synthetic logs, Splunk/Sentinel queries, and a simple incident report.
+Simulate and detect suspicious authentication events using synthetic logs, Splunk queries, and a simple incident report.
 
 ## Contents
 - logs/sample_syslog.log
