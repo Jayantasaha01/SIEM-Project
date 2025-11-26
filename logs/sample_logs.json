@@ -12,4 +12,3 @@
 {"timestamp": 1764190415.2984695, "src_ip": "192.168.1.15", "event": "login_failed"}
 {"timestamp": 1764190416.298705, "src_ip": "192.168.1.15", "event": "file_access"}
 {"timestamp": 1764190417.298965, "src_ip": "198.51.100.77", "event": "network_scan"}
-{"timestamp": 1764190418.2992644, "src_ip": "192.168.1.15", "event": "login_success"}
