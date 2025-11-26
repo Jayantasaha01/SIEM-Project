@@ -1,23 +1,27 @@
-# SIEM Log Analysis & Incident Detection
+# Mini Python SIEM
+A simple, beginner-friendly SIEM for demonstration and real-life learning.
 
-## Purpose
-Simulate and detect suspicious authentication events using synthetic logs, Splunk queries, and a simple incident report.
+## Features
+- Log collection
+- Parsing & normalization
+- Threat detection
+- Web dashboard (Flask)
 
-## Contents
-- logs/sample_syslog.log
-- scripts/generate_logs.py
-- queries/splunk_searches.txt
-- queries/azure_kql_queries.txt
-- notebooks/analysis.ipynb
-- incident_report.md
+## Usage
+Run each component:
 
-## How to run (local)
-1. `python3 scripts/generate_logs.py` to create logs.
-2. Open `notebooks/analysis.ipynb` to run analysis.
-3. Load `logs/sample_syslog.log` into Splunk or Sentinel and apply the queries in `queries/`.
+### 1. Start log generator
+''' bash
+python3 collector.py '''
 
-## Resume Reference
-See resume: ``
+### 2. Parse logs
+''' bash
+python3 parser.py '''
 
-## Contact
-Jayanta Saha — jayanta.saha0010@gmail.com
+### 3. Analyze threats
+''' bash
+python3 analyzer.py '''
+
+### 4. Start dashboard
+
+Open browser at: http://127.0.0.1:5000
