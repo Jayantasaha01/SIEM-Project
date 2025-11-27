@@ -304,7 +304,10 @@ if __name__ == "__main__":
     # Start collector in a separate thread
     collector_thread = threading.Thread(target=run_collector, daemon=True)
     collector_thread.start()
-    time.sleep(2)  # allow collector to generate logs
-
+   # allow collector to generate logs
+    time.sleep(2)  
+# Open browser automatically (only on first run, not on reloader)
+    if os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
+        threading.Timer(1.5, lambda: webbrowser.open('http://localhost:8080')).start()
     # Run Flask dashboard
     app.run(host="0.0.0.0", port=8080, debug=True)
