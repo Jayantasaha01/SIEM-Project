@@ -2,7 +2,7 @@
 import json, time
 from parser import parse_logs
 
-THRESHOLD_FAILED_LOGINS = 3
+THRESHOLD_FAILED_LOGINS = 5
 
 
 def detect_threats(logs):
@@ -24,7 +24,7 @@ def detect_threats(logs):
     return events
 
 if __name__ == "__main__":
-    logs = parse_logs("logs/sample_logs.json")
+    logs = parse_logs("logs/logs.json")
     events = detect_threats(logs)
     with open("events.json", "w") as f:
         json.dump(events, f, indent=2)

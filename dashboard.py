@@ -272,9 +272,13 @@ dashboard_html = """
 @app.route("/")
 def home():
     # Parse and analyze logs on each request for real-time updates
-    if os.path.exists("logs/sample_logs.json"):
-        logs = parse_logs("logs/sample_logs.json")
+    if os.path.exists("logs/logs.json"):
+        logs = parse_logs("logs/logs.json")
         events = detect_threats(logs)
+        
+        # Save events to JSON file
+        with open("events.json", "w") as f:
+            json.dump(events, f, indent=2)
         
         # Format timestamps for display
         for e in events:

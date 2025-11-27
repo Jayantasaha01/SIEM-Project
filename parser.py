@@ -13,5 +13,5 @@ def parse_logs(input_file):
     return parsed
 
 if __name__ == "__main__":
-    logs = parse_logs("logs/sample_logs.json")
+    logs = parse_logs("logs/logs.json")
     print(f"Parsed {len(logs)} logs.")
