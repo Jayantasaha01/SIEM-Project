@@ -2,7 +2,7 @@
 import json, time
 from parser import parse_logs
 
-THRESHOLD_FAILED_LOGINS = 3
+THRESHOLD_FAILED_LOGINS = 5
 
 
 def detect_threats(logs):

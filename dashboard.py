@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template_string
-import json, os, time, threading, webbrowser
+import json, os, time, threading
 from parser import parse_logs
 from analyzer import detect_threats
 from datetime import datetime
@@ -14,7 +14,7 @@ dashboard_html = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mini SIEM Dashboard</title>
+    <title>SIEM Dashboard</title>
     <meta http-equiv="refresh" content="1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -232,7 +232,7 @@ dashboard_html = """
                 <div class="stat-label">Status</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">Every Second</div>
+                <div class="stat-value">1 Second</div>
                 <div class="stat-label">Refresh Rate</div>
             </div>
         </div>
@@ -272,8 +272,8 @@ dashboard_html = """
 @app.route("/")
 def home():
     # Parse and analyze logs on each request for real-time updates
-    if os.path.exists("logs/sample_logs.json"):
-        logs = parse_logs("logs/sample_logs.json")
+    if os.path.exists("logs/logs.json"):
+        logs = parse_logs("logs/logs.json")
         events = detect_threats(logs)
         
         # Save events to JSON file
@@ -305,10 +305,6 @@ if __name__ == "__main__":
     collector_thread = threading.Thread(target=run_collector, daemon=True)
     collector_thread.start()
     time.sleep(2)  # allow collector to generate logs
-
-    # Open browser automatically (only on first run, not on reloader)
-    if os.environ.get('WERKZEUG_RUN_MAIN') == 'true':
-        threading.Timer(1.5, lambda: webbrowser.open('http://localhost:8080')).start()
 
     # Run Flask dashboard
     app.run(host="0.0.0.0", port=8080, debug=True)
