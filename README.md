@@ -1,6 +1,5 @@
-# Mini Python SIEM
-A simple, beginner-friendly SIEM for demonstration and real-life learning.
-
+# Python SIEM
+A simple, beginner-friendly SIEM Dashboard
 # Features
 - Log collection
 - Parsing & normalization
